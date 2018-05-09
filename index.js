@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 
+const TOKEN = "NDQzMjE2MDE4MTQwMTY4MjAy.DdN_oQ.DWrzG-f8wS35mzkyNrhAo8hWcZ8";
 const prefix = "-e ";
 const role = "-role ";
 
@@ -162,4 +163,4 @@ const command = args.shift().toLowerCase();
     else {return}
 });
 
-bot.login(process.env.bot.TOKEN);
+bot.login(TOKEN);
