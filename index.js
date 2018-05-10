@@ -1,6 +1,5 @@
 const Discord = require("discord.js");
 
-const TOKEN = "NDQzMjE2MDE4MTQwMTY4MjAy.DdN_oQ.DWrzG-f8wS35mzkyNrhAo8hWcZ8";
 const prefix = "-e ";
 const role = "-role ";
 
