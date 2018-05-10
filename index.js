@@ -1,20 +1,27 @@
 const Discord = require("discord.js");
 
+const TOKEN = "NDQzMjE2MDE4MTQwMTY4MjAy.DdN_oQ.DWrzG-f8wS35mzkyNrhAo8hWcZ8";
 const prefix = "-e ";
 const role = "-role ";
 
 var hello= [
-    "Heya!",
-    "Hi!",
-    "Hello!",
-    "Hey, hope you are are having a wonderful time!",
+    "Heya, ",
+    "Hi, ",
+    "Hello, ",
+    "Hey, hope you are are having a wonderful time, ",
+    "Hiiii, ",
+    "Welcome, ",
+    "Hi, how's it hanging, ",
+    "How goes it, ",
 ]
 
 var curseresp = [
-    "That is not nice" ,
-    "I don't deserve that" ,
+    "That is not nice ",
+    "I don't deserve tha t",
     "Case of a dirty mouth, ain't it ",
-    "You could just leave you know "
+    "You could just leave you know ",
+    "I don't really tolerate that kind of language, ",
+    "Please restrain from using THAT word, ",
 ]
 
 var noresp = [
@@ -23,6 +30,7 @@ var noresp = [
     "According to my calculations, you really just speak nonsense.",
     "Not even my equipment can translate that, sorry.",
     "You *WHAT* now?",
+    "Something must be up with the connection, I didn't quite catch that!",
     "I might not be as smart as SIRI or CORTANA, but I have pretty good responses, sometimes. Not now though, sorry.",
     "I found no results to the search of 'possible good responses'.",
     "Sorry Dave, I'm afraid I can't do that. Get it? *Refereeeeence*."
@@ -33,7 +41,7 @@ var bot = new Discord.Client();
 //Bot basics
 bot.on("ready", function() {
     console.log("Ready");
-    bot.user.setActivity("being coded by the tiny dragon");
+    bot.user.setActivity("with the tiny blue dragon");
 });
 
 bot.on("message", function(message) 
@@ -50,7 +58,7 @@ const command = args.shift().toLowerCase();
         {
             message.channel.send({embed: {
                 color: 3447003,
-                description: (hello[Math.floor(Math.random() * hello.length)])
+                description: (hello[Math.floor(Math.random() * hello.length)])+message.author+"!"
               }});
         }
         else if (message.content.match(/(^|\W)ping($|\W)/))
@@ -81,6 +89,13 @@ const command = args.shift().toLowerCase();
                 description: "*Throws a bunch of macro-sized confetti in the air*"
               }});
         }
+        else if (message.content.match(/(^|\W)help me($|\W)/))
+        {
+            message.channel.send({embed: {
+                color: 3447003,
+                description: "Not my fight."
+              }});
+        }
         else if (message.content.match(/(^|\W)Dany is right($|\W)/))
         {
             message.channel.send({embed: {
@@ -92,10 +107,25 @@ const command = args.shift().toLowerCase();
         {
             message.channel.send({embed: {
                 color: 3447003,
-                description: "Sweet dreams, dear! Catch you tomorrow!"
+                description: "Sweet dreams! Catch you tomorrow!"
               }});
         }
-        else if (message.content.match(/fuck/i) || message.content.match(/shit/i) || message.content.match(/bitch/i))
+        else if (message.content.match(/(^|\W)cheers($|\W)/))
+        {
+            message.channel.send({embed: {
+                color: 3447003,
+                description: "*winks at* "+message.author
+              }});
+        }
+        else if (message.content.match(/(^|\W)who am I($|\W)/))
+        {
+            message.channel.send({embed: {
+                color: 3447003,
+                description: "Why, you are "+message.author+" silly!"
+              }});
+        }
+        else if (message.content.match(/ass/i) || message.content.match(/shit/i) || message.content.match(/fuck/i)
+         || message.content.match(/cunt/i) || message.content.match(/bitch/i) || message.content.match(/fucker/i))
         {
             message.channel.send({embed: {
                 color: 3447003,
@@ -113,7 +143,7 @@ const command = args.shift().toLowerCase();
         {
             message.channel.send({embed: {
                 color: 3447003,
-                description: "Oh, "+message.author+" you cheeky...*blushes*"
+                description: "Oh, "+message.author+" you cheeky... \n *blushes*"
               }});
         }
         else if (message.content.match(/Who is the best tiny blue dragon/i))
@@ -140,7 +170,7 @@ const command = args.shift().toLowerCase();
         {
             message.channel.send({embed: {
                 color: 3447003,
-                description: "So tiny, barely visible!"
+                description: "*Snickers* \n So tiny, barely visible!"
               }});
         }
         else if (message.content.match(/(^|\W)macro($|\W)/))
