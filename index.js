@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 
-const prefix = "-e ";
+const TOKEN = "NDQzMjE2MDE4MTQwMTY4MjAy.DdN_oQ.DWrzG-f8wS35mzkyNrhAo8hWcZ8";
+const prefix = "-Ember, ";
 const role = "-role ";
 
 var hello= [
@@ -32,7 +33,22 @@ var noresp = [
     "Something must be up with the connection, I didn't quite catch that!",
     "I might not be as smart as SIRI or CORTANA, but I have pretty good responses, sometimes. Not now though, sorry.",
     "I found no results to the search of 'possible good responses'.",
-    "Sorry Dave, I'm afraid I can't do that. Get it? *Refereeeeence*."
+    "Sorry Dave, I'm afraid I can't do that. Get it? *Refereeeeence*.",
+]
+
+var macro = [
+    "Go big or go home, right ",
+    "Adjusting growth ray equipment...\n *points the machine towards* ",
+    "x1, x10, x10^3, x10^6... Your growth data is fascinating, ",
+    "I'm measuring a gravitational pull around ",
+    "Linear or exponential growth? Time to go big, ",
+]
+
+var micro = [
+    "*Snickers* \n So tiny, you are barely even visible, ",
+    "I'm sure you don't mind a *tiny experiment*, do you, ",
+    "Awesome! Now I get to try the new adjustments on the shrink ray!\n *points it at* ",
+    "Mili? Micro? Nano? How about we go smaller, ",
 ]
 
 var bot = new Discord.Client();
@@ -95,6 +111,13 @@ const command = args.shift().toLowerCase();
                 description: "Not my fight."
               }});
         }
+        else if (message.content.match(/(^|\W)you are awesome($|\W)/))
+        {
+            message.channel.send({embed: {
+                color: 3447003,
+                description: "*giggles*\n Thank you, "+message.author+"! You are sweet!"
+              }});
+        }
         else if (message.content.match(/(^|\W)Dany is right($|\W)/))
         {
             message.channel.send({embed: {
@@ -102,7 +125,7 @@ const command = args.shift().toLowerCase();
                 description: "Little Dany dragon might be small, be he is always right. Always, most of the time..."
               }});
         }
-        else if (message.content.match(/(^|\W)goodnight($|\W)/))
+        else if (message.content.match(/(^|\W)goodnight($|\W)/) || message.content.match(/(^|\W)good night($|\W)/))
         {
             message.channel.send({embed: {
                 color: 3447003,
@@ -116,13 +139,31 @@ const command = args.shift().toLowerCase();
                 description: "*winks at* "+message.author
               }});
         }
-        else if (message.content.match(/(^|\W)who am I($|\W)/))
+        else if (message.content.match(/(^|\W)love($|\W)/))
         {
             message.channel.send({embed: {
                 color: 3447003,
-                description: "Why, you are "+message.author+" silly!"
+                description: "Who ME? ...Please, "+message.author+"!"
               }});
         }
+        else if (message.content.match(/(^|\W)who are you($|\W)/))
+        {
+            message.channel.send({embed: {
+                color: 3447003,
+                description: "My name is Ember, "+message.author+". It literally say right there, silly!"
+            }});
+        }
+
+        //WHO AM I
+            else if (message.content.match(/(^|\W)who am I($|\W)/))
+            {
+                message.channel.send({embed: {
+                    color: 3447003,
+                    description: "Why, you are "+message.author+" silly!"
+                }});
+            }
+
+        //SWEARING
         else if (message.content.match(/ass/i) || message.content.match(/shit/i) || message.content.match(/fuck/i)
          || message.content.match(/cunt/i) || message.content.match(/bitch/i) || message.content.match(/fucker/i))
         {
@@ -131,6 +172,8 @@ const command = args.shift().toLowerCase();
                 description: (curseresp[Math.floor(Math.random() * curseresp.length)]+message.author+".")
               }});
         }
+
+
         else if (message.content.match(/(^|\W)drink($|\W)/))
         {
             message.channel.send({embed: {
@@ -169,14 +212,14 @@ const command = args.shift().toLowerCase();
         {
             message.channel.send({embed: {
                 color: 3447003,
-                description: "*Snickers* \n So tiny, barely visible!"
+                description: (micro[Math.floor(Math.random() * micro.length)])+message.author+"!"
               }});
         }
         else if (message.content.match(/(^|\W)macro($|\W)/))
         {
             message.channel.send({embed: {
                 color: 3447003,
-                description: "Go big or go home, right?"
+                description: (macro[Math.floor(Math.random() * macro.length)])+message.author+"!"
               }});
         }
         else if (message.content.match(/(^|\W)changer($|\W)/))
