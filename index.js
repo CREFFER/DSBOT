@@ -227,7 +227,7 @@ const command = args.shift().toLowerCase();
             {
                 message.channel.send({embed: {
                     color: 3447003,
-                    description: "<@!306137710001651713>? He is the tiny blue dragon that runs this server. Pesky, tiny, squishy but lovely nonetheless. Oh and he is also an artist! \n http://www.furaffinity.net/user/danyelx/"
+                    description: "<@!306137710001651713>? He is the tiny blue dragon that runs this server. Pesky, tiny, squishy but lovely nonetheless. Apparently everybody's shared toy here. Oh and he is also an artist! \n http://www.furaffinity.net/user/danyelx/"
                 }});
             }
             
