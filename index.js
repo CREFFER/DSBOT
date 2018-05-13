@@ -1,8 +1,11 @@
 const Discord = require("discord.js");
 
+const TOKEN = "NDQzMjE2MDE4MTQwMTY4MjAy.DdN_oQ.DWrzG-f8wS35mzkyNrhAo8hWcZ8";
 const prefix = "-Ember, ";
 const role = "-role ";
+const tease = "-tease";
 
+//Greeing
 var hello= [
     "Heya, ",
     "Hi, ",
@@ -14,6 +17,7 @@ var hello= [
     "How goes it, ",
 ]
 
+//Reaction to cursing
 var curseresp = [
     "That is not nice ",
     "I don't deserve tha t",
@@ -23,6 +27,7 @@ var curseresp = [
     "Please restrain from using THAT word, ",
 ]
 
+//Can't understand command
 var noresp = [
     "Sorry hun, I didn't get that.",
     "Nope.",
@@ -35,25 +40,29 @@ var noresp = [
     "Sorry Dave, I'm afraid I can't do that. Get it? *Refereeeeence*.",
 ]
 
+//Role macro
 var macro = [
     "Go big or go home, right ",
-    "Adjusting growth ray equipment...\n *points the machine towards* ",
+    "Adjusting growth ray equipment...\n*points the machine towards* ",
     "x1, x10, x10^3, x10^6... Your growth data is fascinating, ",
     "I'm measuring a gravitational pull around ",
     "Linear or exponential growth? Time to go big, ",
 ]
 
+
+//Role micro
 var micro = [
-    "*Snickers* \n So tiny, you are barely even visible, ",
+    "*Snickers* \nSo tiny, you are barely even visible, ",
     "I'm sure you don't mind a *tiny experiment*, do you, ",
-    "Awesome! Now I get to try the new adjustments on the shrink ray!\n *points it at* ",
+    "Awesome! Now I get to try the new adjustments on the shrink ray!\n*points it at* ",
     "Mili? Micro? Nano? How about we go smaller, ",
 ]
 
+//Response to how are you
 var how = [
-    "*Scribbles on her notes* \n Fine, thank you! A bit busy, but otherwise fine!",
-    "*Shakes a bottle of microscopic city sample* \n Currently, fascinated by these tinies!",
-    "*Twist a knob on the shrink/growth ray* \n I'm doing okay! Hey, care to test this with me?",
+    "*Scribbles on her notes* \nFine, thank you! A bit busy, but otherwise fine!",
+    "*Shakes a bottle of microscopic city sample* \nCurrently, fascinated by these tinies!",
+    "*Twist a knob on the shrink/growth ray* \nI'm doing okay! Hey, care to test this with me?",
 ]
 
 var bot = new Discord.Client();
@@ -226,7 +235,7 @@ const command = args.shift().toLowerCase();
             {
                 message.channel.send({embed: {
                     color: 3447003,
-                    description: "<@!306137710001651713>? He is the tiny blue dragon that runs this server. Pesky, tiny, squishy but lovely nonetheless. Apparently everybody's shared toy here. Oh and he is also an artist! \n http://www.furaffinity.net/user/danyelx/"
+                    description: "<@!306137710001651713>? He is the tiny blue dragon that runs this server. Pesky, tiny, squishy but lovely nonetheless. Oh and he is also an artist! \n http://www.furaffinity.net/user/danyelx/"
                 }});
             }
             
@@ -310,32 +319,134 @@ const command = args.shift().toLowerCase();
           }});
         }
     }
+
+    //Roles
     else if (message.content.startsWith(role))
     {
+        //Micro
         if (message.content.match(/(^|\W)micro($|\W)/))
         {
+            let role = message.guild.roles.find("name", "Micro");
+            let member = message.member;
+
+            member.addRole(role).catch(console.error);
+            
             message.channel.send({embed: {
                 color: 3447003,
                 description: (micro[Math.floor(Math.random() * micro.length)])+message.author+"!"
               }});
         }
+
+        //Macro
         else if (message.content.match(/(^|\W)macro($|\W)/))
         {
+            let role = message.guild.roles.find("name", "Macro");
+            let member = message.member;
+
+            member.addRole(role).catch(console.error);
             message.channel.send({embed: {
                 color: 3447003,
                 description: (macro[Math.floor(Math.random() * macro.length)])+message.author+"!"
               }});
         }
+
+        //Changer
         else if (message.content.match(/(^|\W)changer($|\W)/))
         {
+            let role = message.guild.roles.find("name", "Changer");
+            let member = message.member;
+
+            member.addRole(role).catch(console.error);
             message.channel.send({embed: {
                 color: 3447003,
                 description: "Can't decide, huh? No shame in that, sweets!"
               }});
         }
+
+        //Artist
+        else if (message.content.match(/(^|\W)artist($|\W)/))
+        {
+            let role = message.guild.roles.find("name", "Artist");
+            let member = message.member;
+
+            member.addRole(role).catch(console.error);
+            message.channel.send({embed: {
+                color: 3447003,
+                description: "Sweet! Can't wait to see what you have to share with us, "+message.author+"!"
+              }});
+        }
+
+        //Watcher
+        else if (message.content.match(/(^|\W)artist($|\W)/))
+        {
+            let role = message.guild.roles.find("name", "Artist");
+            let member = message.member;
+
+            member.addRole(role).catch(console.error);
+            message.channel.send({embed: {
+                color: 3447003,
+                description: "The pleasure of enjoying others' art! Right, "+message.author+"?"
+              }});
+        }
     
     }
+
+    //TEASING
+    else if (message.content.startsWith(tease))
+    {  
+        
+        //Teasing micros
+        
+        var teased = message.mentions.members.first() || message.guild.members.get(args[0]);
+        if(!teased)
+        {
+            var teased = message.member
+        }
+        var microtease = [
+            "*Pinches "+teased+" between her fingers and brings them close to her face*\nNow, what should I do with you, tiny litle rebel, hmm~?",
+            "*Stands above "+teased+" and places her hands on her hips, shaking it left and right*\nHey tiny, would you like to play a game of hide and seek~?",
+            "*Lifts her foot above "+teased+" and smiles down at them*\nHey little one, let's play a game, I promise you it will be a TON of fun for you! Or who knows, at your size, it might be a bit more~",
+            "*Traps "+teased+" under a glass dish and puts her paw on top of it*\nLooks I get to expand my micro sample collection~!",
+            "*Takes one of her boots off and holds "+teased+" above it*\nCare to run a little endurance test with me? See ya at the end of the day~!",
+    
+            ]
+    
+            //Teasing macros
+            var macrotease = [
+            "*Scatters a bottle of micro-civilisation sample in front of "+teased+"*\nI measure the population data, you just have to make it decrease, okay sweets~?",
+            "*Pulls "+teased+" close to a microscope, showing them a small city under it*\nFascinating, isn't it? Don't worry, you are totally allowed to touch that sample~",
+            "*Gives "+teased+" a handful of micros*\nWould you like to help me pressure-test this sample~?",
+            "*Gives "+teased+" a strange looking device*\nWant to test my reverse ray? You can turn back all the destruction you cause with the pull of a trigger! Supposably. If not, there are many cities we can try new adjustments on~!",
+            "*Leads "+teased+" in a teleport chamber*\nSo many civilizations to collect destruction data from, so little time! Where should we start~?",
+                
+            ]
+
+        if (teased.roles.find("name", "Micro"))
+        {
+            message.channel.send({embed: {
+                color: 3447003,
+                description: (microtease[Math.floor(Math.random() * microtease.length)])
+              }});
+        }
+
+        else if (teased.roles.find("name", "Macro"))
+        {
+            message.channel.send({embed: {
+                color: 3447003,
+                description: (macrotease[Math.floor(Math.random() * macrotease.length)])
+              }});
+        }
+        else
+        {
+            message.channel.send({embed: {
+                color: 3447003,
+                description: "I know nothing about them, tell me how to treat them first!"
+              }});
+
+        }
+    }
     else {return}
+    
 });
 
 bot.login(TOKEN);
