@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 
+const TOKEN = "NDQzMjE2MDE4MTQwMTY4MjAy.DdN_oQ.DWrzG-f8wS35mzkyNrhAo8hWcZ8";
 const prefix = "-Ember ";
 const role = "-role ";
 const tease = "-tease";
@@ -14,6 +15,36 @@ var hello= [
     "Welcome, ",
     "Hi, how's it hanging, ",
     "How goes it, ",
+]
+
+//No
+var no= [
+    "Nope.",
+    "Nu-uh.",
+    "Nihil.",
+    "Nem.",
+    "Non.",
+]
+
+//Drink
+var drink= [
+    "*Slides a cold macro-sized shotglass of vodka to* ",
+    "*Opens a bottle of cold beer and hands it to* ",
+    "*Shakes a cocktail mixer, throws it over her head, pours it out into a glass and slides it to* ",
+    "*Rolls a cold can towards* ",
+    "*Pours whiskey over a glass of ice cubes and puts it in front of* ",
+    "*Puts a straw into a glass of screwdriver and pushes it towards* ",
+    "*Pours some gin over glass of iced tonic and places it in fron of* ",
+    "*Fills a half-full whiskey bottle to the top with coke and slams it in front of* ",
+]
+
+//help me
+var helpme= [
+    "Nope, no can do.",
+    "Not my fight.",
+    "Why would I?",
+    "I'll let you handle it yourself.",
+    "Sorry, there's no way I can assist you.",
 ]
 
 //Reaction to cursing
@@ -92,6 +123,25 @@ const command = args.shift().toLowerCase();
               }});
         }
 
+        if (message.content.match(/(^|\W)welcome($|\W)/))
+        {
+            if (!message.mentions.members.first())
+            {
+                message.channel.send({embed: {
+                    color: 3447003,
+                    description: "Who should I welcome?"
+                  }});
+                
+            }
+            else
+            {
+            message.channel.send({embed: {
+                color: 3447003,
+                description: "Hi there, "+message.mentions.members.first()+"! Hope you'll have fun here!"
+              }});
+            }
+        }
+
         //How are you
         else if (message.content.match(/(^|\W)how are you($|\W)/))
         {
@@ -115,7 +165,7 @@ const command = args.shift().toLowerCase();
         {
             message.channel.send({embed: {
                 color: 3447003,
-                description: "Nope, a-ah."
+                description: (no[Math.floor(Math.random() * no.length)])
               }});
         }
         
@@ -133,7 +183,7 @@ const command = args.shift().toLowerCase();
         {
             message.channel.send({embed: {
                 color: 3447003,
-                description: "I have none right now, sorry."
+                description: "I have none right now, sorry. In fact I don't even smoke."
               }});
         }
 
@@ -151,7 +201,7 @@ const command = args.shift().toLowerCase();
         {
             message.channel.send({embed: {
                 color: 3447003,
-                description: "Not my fight."
+                description: (helpme[Math.floor(Math.random() * helpme.length)])
               }});
         }
 
@@ -285,14 +335,16 @@ const command = args.shift().toLowerCase();
               }});
         }
 
-
+        //Drink
         else if (message.content.match(/(^|\W)drink($|\W)/))
         {
             message.channel.send({embed: {
                 color: 3447003,
-                description: "*Slides " +message.author+ " a cold shot.*"
+                description: (drink[Math.floor(Math.random() * drink.length)]+message.author+".")
               }});
         }
+
+        //Sweet
         else if (message.content.match(/(^|\W)sweet($|\W)/))
         {
             message.channel.send({embed: {
@@ -407,6 +459,11 @@ const command = args.shift().toLowerCase();
             "*Lifts her foot above "+teased+" and smiles down at them*\nHey little one, let's play a game, I promise you it will be a TON of fun for you! Or who knows, at your size, it might be a bit more~",
             "*Traps "+teased+" under a glass dish and puts her paw on top of it*\nLooks I get to expand my micro sample collection~!",
             "*Takes one of her boots off and holds "+teased+" above it*\nCare to run a little endurance test with me? See ya at the end of the day~!",
+            "*Stands on one foot and peels "+teased+" off her sole*\nOh hey! I've been looking for you for a while now~!",
+            "*Sits down and closes her feet around "+teased+"*\nI believe in science, open Sesame won't work for you~",
+            "*Lays in front of "+teased+" and opens her mouth wide*\nHow about we play some cave exploler~?",
+            "*Stomps forcefully around "+teased+" a few times*\nIt's called stress test, ever heard of it, sweets~?",
+            "*Stomps down at "+teased+" and traps them between her toes*\nTsk tsk tsk, escaping the test chamber is not nice~",
     
             ]
     
@@ -417,7 +474,15 @@ const command = args.shift().toLowerCase();
             "*Gives "+teased+" a handful of micros*\nWould you like to help me pressure-test this sample~?",
             "*Gives "+teased+" a strange looking device*\nWant to test my reverse ray? You can turn back all the destruction you cause with the pull of a trigger! Supposably. If not, there are many cities we can try new adjustments on~!",
             "*Leads "+teased+" in a teleport chamber*\nSo many civilizations to collect destruction data from, so little time! Where should we start~?",
-                
+            "*Gives "+teased+" a handful of micros*\nWould you like to help me pressure-test this sample~?",
+            "Medicine time! Open wide, "+teased+"!\n*Places <@!306137710001651713> on their tongue and gently closes their jaw*",
+            "*Hands "+teased+" a plastic container of tinies*\nNew flavor, care to try~?",
+            "*Leads "+teased+" across a microscopic city*\nFeel that? Yeah, me neither~!",
+            "*Passes "+teased+" a few colorful marble like balls*\nPlanets! The shrink ray works pretty well, don't you think so~?",
+            "*Pushes "+teased+" over and takes a closer look at their feet*\nOh so THAT'S where that micro sample wandered off!",
+            "*Gives "+teased+" a floating solar system ring*\nThe shrink ray works PRETTY good! Don't worry, materialization will keep it together. Finger or toe, your choice~",
+            "*Gives "+teased+" a baseball-sized Earth-like planet*\nI trust this will keep you busy for a while? You know... In the name of science~",
+            
             ]
 
         if (teased.roles.find("name", "Micro"))
