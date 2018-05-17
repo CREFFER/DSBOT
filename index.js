@@ -123,7 +123,7 @@ const command = args.shift().toLowerCase();
               }});
         }
 
-        if (message.content.match(/(^|\W)welcome($|\W)/))
+        else if (message.content.match(/(^|\W)welcome($|\W)/))
         {
             if (!message.mentions.members.first())
             {
