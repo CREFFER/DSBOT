@@ -465,7 +465,7 @@ const command = args.shift().toLowerCase();
             "*Stomps forcefully around "+teased+" a few times*\nIt's called stress test, ever heard of it, sweets~?",
             "*Stomps down at "+teased+" and traps them between her toes*\nTsk tsk tsk, escaping the test chamber is not nice~",
             "*Places "+teased+" on her tongue and giggles*\nHow about testing this slide~?",
-            "*Places "+teased+" between her toes*\nHey let's do a stress test! Don't worry, I'll stop if I feel too much cracking! That is, if I feel any at all~",
+            "*Places "+teased+" between her toes*\nHey let's do a stress test! Don't worry, I'll stup if I feel too much cracking! That is, if I feel any at all~",
     
             ]
     
