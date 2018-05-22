@@ -326,7 +326,7 @@ const command = args.shift().toLowerCase();
     
 
         //SWEARING
-        else if (message.content.match(/ass/i) || message.content.match(/shit/i) || message.content.match(/fuck/i)
+        else if (message.content.match(/shit/i) || message.content.match(/fuck/i)
          || message.content.match(/cunt/i) || message.content.match(/bitch/i) || message.content.match(/fucker/i))
         {
             message.channel.send({embed: {
