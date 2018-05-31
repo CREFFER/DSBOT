@@ -142,6 +142,25 @@ const command = args.shift().toLowerCase();
               }});
             }
         }
+        
+        else if (message.content.match(/(^|\W)happy birthday($|\W)/))
+        {
+            if (!message.mentions.members.first())
+            {
+                message.channel.send({embed: {
+                    color: 3447003,
+                    description: "Who has a birthday?"
+                  }});
+                
+            }
+            else
+            {
+            message.channel.send({embed: {
+                color: 3447003,
+                description: "HAPPY BIRTHDAY "+message.mentions.members.first()+"!!"
+              }});
+            }
+        }
 
         //How are you
         else if (message.content.match(/(^|\W)how are you($|\W)/))
@@ -345,6 +364,7 @@ const command = args.shift().toLowerCase();
               }});
         }
 
+        
         //Sweet
         else if (message.content.match(/(^|\W)sweet($|\W)/))
         {
