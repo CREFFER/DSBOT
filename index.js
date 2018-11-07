@@ -5,7 +5,7 @@ const prefix = "-Ember ";
 const role = "-role ";
 const tease = "-tease";
 
-//Greeing
+//Greeings
 var hello= [
     "Heya, ",
     "Hi, ",
